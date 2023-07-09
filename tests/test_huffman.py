@@ -3,8 +3,13 @@ from huffman.huffmancoding import HuffmanCoding
 from huffman.huffmandecoding import HuffmanDecoding
 
 
+"""
 @staticmethod
+"""
+
+
 def verify_tree(tree):
+
     """
     Verifica que el árbol de Huffman sea válido.
     :param tree: árbol de Huffman
@@ -30,6 +35,7 @@ def verify_tree(tree):
                     return True
     else:
         return True
+
 
 @pytest.mark.parametrize("filename", ["ejemplo1.in", "ejemplo2.in", "ejemplo3.in"])
 def test_files(self, filename):

@@ -16,21 +16,21 @@ class HuffmanCoding:
         """
         raise NotImplementedError("Aún no implementado")
 
-    def getTree(self):
+    def get_tree(self):
         """
         Retorna el árbol de Huffman.
         :return: árbol de Huffman
         """
         raise NotImplementedError("Aún no implementado")
 
-    def getTable(self):
+    def get_table(self):
         """
         Retorna la tabla de codificación.
         :return: tabla de codificación
         """
         raise NotImplementedError("Aún no implementado")
 
-    def getSummary(self):
+    def get_summary(self):
         """
         Retorna el resumen de la codificación.
         :return: resumen de la codificación en formato string
