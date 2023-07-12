@@ -15,13 +15,13 @@ def verify_tree(tree):
     :param tree: árbol de Huffman
     :return: True si el árbol es válido, False de lo contrario
     """
-    key = tree.get_number_key()
+    key = tree.get_number_key
     if key != -1:
         left = tree.get_left()
         right = tree.get_right()
 
         if left is not None and right is not None:
-            condition = key >= left.get_number_key() and key >= right.get_number_key()
+            condition = key >= left.get_number_key and key >= right.get_number_key
             return condition and verify_tree(left) and verify_tree(right)
         else:
             if left is None:
@@ -29,7 +29,7 @@ def verify_tree(tree):
                 return condition and verify_tree(right)
             else:
                 if right is None:
-                    condition = key >= left.get_number_key()
+                    condition = key >= left.get_number_key
                     return condition and verify_tree(left)
                 else:
                     return True
@@ -49,5 +49,5 @@ def test_files(filename):
     decoding = HuffmanDecoding()
     decoded = decoding.decode(encoded, tree)
 
-    assert self.verify_tree(tree)
+    assert verify_tree(tree)
     assert text == decoded
