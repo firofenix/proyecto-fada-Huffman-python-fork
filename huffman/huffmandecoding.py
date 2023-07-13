@@ -1,3 +1,4 @@
+from huffman.huffmancoding import HuffmanCoding
 class HuffmanDecoding:
     """
     Clase HuffmanDecoding
@@ -28,3 +29,12 @@ class HuffmanDecoding:
                 arbol = tree
 
         return text_decoded
+
+
+"""coding = HuffmanCoding()
+encoded = coding.encode("un mundo mejor se crea ayudando a los demás, apoya a tu projimo")
+tree = coding.get_tree()
+print(coding.get_table())
+
+decoding = HuffmanDecoding()
+decoded = decoding.decode(encoded, tree"""
