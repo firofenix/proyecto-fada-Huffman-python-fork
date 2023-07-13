@@ -1,6 +1,6 @@
 import pytest
-from huffman.huffmancoding import HuffmanCoding
-from huffman.huffmandecoding import HuffmanDecoding
+from huffman .huffmancoding import HuffmanCoding
+from huffman .huffmandecoding import HuffmanDecoding
 
 """
 @staticmethod
@@ -14,7 +14,7 @@ def verify_tree(tree):
     :param tree: árbol de Huffman
     :return: True si el árbol es válido, False de lo contrario
     """
-    key = tree.get_number_key
+    key = tree.get_number_key()
     if key != -1:
         left = tree.get_left()
         right = tree.get_right()
@@ -23,8 +23,8 @@ def verify_tree(tree):
             condition = key >= left.get_number_key() and key >= right.get_number_key()
             return condition and verify_tree(left) and verify_tree(right)
         else:
-            if left is None:
-                condition = key >= right.get_number_key()
+            if left is None and right is not None:
+                condition = key >= right.get_number_key()  # warning NoneType
                 return condition and verify_tree(right)
             else:
                 if right is None:

@@ -1,5 +1,5 @@
-from huffmanbinarytree import HuffmanBinaryTree
-from huffmanbinarytree import node
+from huffman.huffmanbinarytree import HuffmanBinaryTree
+from huffman.huffmanbinarytree import node
 
 
 class HuffmanCoding:
@@ -51,8 +51,6 @@ class HuffmanCoding:
                                            arbol1, arbol2))
         self.arbol = lista[0]
 
-        print(self.arbol.get_left().get_right().get_llave().get_key())
-
         # aqui voy ya me devuelve el arbol de huffman
         self.tabla = dict()
 
@@ -79,7 +77,6 @@ class HuffmanCoding:
 
         self.compresion = (1 - (len(text_coding) / (tamano_texto * 256))) * 100
         self.compresion = round(self.compresion, 3)
-        print(text_coding)
         return text_coding
 
     def get_tree(self):

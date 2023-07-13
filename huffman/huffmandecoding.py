@@ -1,11 +1,9 @@
-from huffman.huffmancoding import HuffmanCoding
-
 class HuffmanDecoding:
     """
     Clase HuffmanDecoding
     Esta clase se encarga de decodificar un texto en base a un árbol de Huffman
-    Autor: <Estudiantes>
-    Version: <1>
+    Autor: kevin Andres Acosta Rengifo,
+    Version: 2
     """
     def __init__(self):
         pass
@@ -29,9 +27,10 @@ class HuffmanDecoding:
                 arbol = tree
         return text_decoded
 
-code = HuffmanCoding()
+"""code = HuffmanCoding()
 texto_codificado = code.encode("Hola mundo como esta mi gente linda")
 decode = HuffmanDecoding()
 
 texto_decodificado = decode.decode(texto_codificado, code.get_tree())
 print(texto_decodificado)
+"""
