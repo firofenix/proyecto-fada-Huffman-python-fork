@@ -1,6 +1,5 @@
 from huffman.huffmanbinarytree import HuffmanBinaryTree
-from huffman.huffmanbinarytree import node
-
+from huffman.huffmanbinarytree import Node
 
 class HuffmanCoding:
     """
@@ -35,7 +34,7 @@ class HuffmanCoding:
 
         lista = []
         for key in frecuencias:  # crea una lista de hojas de arbol con los caracteres y sus frecuencias
-            lista.append(HuffmanBinaryTree(node(frecuencias[key], key), None, None))
+            lista.append(HuffmanBinaryTree(Node(frecuencias[key], key), None, None))
 
         def obtener_frecuencia(arbol):
             return arbol.get_llave().get_key()
@@ -47,14 +46,14 @@ class HuffmanCoding:
             arbol1 = lista.pop(0)
             arbol2 = lista.pop(0)
             self.Num_nodos += 1
-            lista.append(HuffmanBinaryTree(node(arbol1.get_llave().get_key() + arbol2.get_llave().get_key(), None),
+            lista.append(HuffmanBinaryTree(Node(arbol1.get_llave().get_key() + arbol2.get_llave().get_key(), None),
                                            arbol1, arbol2))
-        self.arbol = lista[0]
+        self.arbol = lista[0]  # ya se crea el arbol de huffman
 
         # aqui voy ya me devuelve el arbol de huffman
         self.tabla = dict()
 
-        def crer_tabla(arbol, codigo):
+        def crear_tabla(arbol, codigo):
             if arbol.get_llave().get_value() is not None:
                 self.tabla[arbol.get_llave().get_value()] = codigo
                 return 0
@@ -62,21 +61,22 @@ class HuffmanCoding:
                 profundidad_left = 0
                 profundidad_right = 0
                 if arbol.get_left() is not None:
-                    profundidad_left = crer_tabla(arbol.get_left(), codigo + "0")
+                    profundidad_left = crear_tabla(arbol.get_left(), codigo + "0")
 
                 if arbol.get_right() is not None:
-                    profundidad_right = crer_tabla(arbol.get_right(), codigo + "1")
+                    profundidad_right = crear_tabla(arbol.get_right(), codigo + "1")
 
             profundidad_Actual = max(profundidad_left, profundidad_right) + 1
             return profundidad_Actual
-        self.profundidad = crer_tabla(self.arbol, "")
+        self.profundidad = crear_tabla(self.arbol, "")
 
         text_coding = ""
         for car in text:
+
             text_coding += self.tabla[car]  # codificación del texto
 
         self.compresion = (1 - (len(text_coding) / (tamano_texto * 256))) * 100
-        self.compresion = round(self.compresion, 3)
+        self.compresion = round(self.compresion, 3)  # porcentaje de compresión redondeado a 3 decimales
         return text_coding
 
     def get_tree(self):
@@ -98,7 +98,7 @@ class HuffmanCoding:
         return: resumen de la codificación en formato string
         """
         return {
-           'Porcentaje de compresión': self.compresion,
+           'Porcentaje de compresión': str(self.compresion) + '%',
            'Número de nodos del árbol': self.Num_nodos,
            'Profundidad del árbol': self.profundidad
         }

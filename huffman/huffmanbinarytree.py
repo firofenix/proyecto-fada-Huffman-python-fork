@@ -41,7 +41,7 @@ class HuffmanBinaryTree:
             return self.llave
 
 
-class node:
+class Node:
     """
     Clase que implementa un nodo
     """
