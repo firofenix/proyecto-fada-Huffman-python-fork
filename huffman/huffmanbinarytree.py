@@ -17,7 +17,7 @@ class HuffmanBinaryTree:
         si es un string retorna -1, si es un
         numero retorna el numero.
         """
-        if self.llave.get_value() is None:
+        if isinstance(self.llave.get_key(), int):
             return self.llave.get_key()
         else:
             return -1
@@ -35,7 +35,10 @@ class HuffmanBinaryTree:
         return self.right
 
     def get_llave(self):
-        return self.llave
+        if self.llave is None:
+            return None
+        else:
+            return self.llave
 
 
 class node:

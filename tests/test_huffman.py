@@ -2,7 +2,6 @@ import pytest
 from huffman.huffmancoding import HuffmanCoding
 from huffman.huffmandecoding import HuffmanDecoding
 
-
 """
 @staticmethod
 """
@@ -21,7 +20,7 @@ def verify_tree(tree):
         right = tree.get_right()
 
         if left is not None and right is not None:
-            condition = key >= left.get_number_key and key >= right.get_number_key
+            condition = key >= left.get_number_key() and key >= right.get_number_key()
             return condition and verify_tree(left) and verify_tree(right)
         else:
             if left is None:
@@ -51,3 +50,13 @@ def test_files(filename):
 
     assert verify_tree(tree)
     assert text == decoded
+
+
+def test_codificar_decode():
+    coding = HuffmanCoding()
+    encoded = coding.encode("un mundo mejor se crea ayudando a los demás, apoya a tu projimo")
+    tree = coding.get_tree()
+
+    decoding = HuffmanDecoding()
+    decoded = decoding.decode(encoded, tree)
+    assert decoded == "un mundo mejor se crea ayudando a los demás, apoya a tu projimo"

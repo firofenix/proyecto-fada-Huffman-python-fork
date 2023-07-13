@@ -1,3 +1,5 @@
+from huffman.huffmancoding import HuffmanCoding
+
 class HuffmanDecoding:
     """
     Clase HuffmanDecoding
@@ -15,4 +17,21 @@ class HuffmanDecoding:
         :param tree: árbol de Huffman
         :return: texto decodificado
         """
-        raise NotImplementedError("Aún no implementado")
+        text_decoded = ""
+        arbol = tree
+        for i in text:
+            if i == "0":
+                arbol = arbol.get_left()
+            else:
+                arbol = arbol.get_right()
+            if arbol.get_llave().get_value() is not None:
+                text_decoded += arbol.get_llave().get_value()
+                arbol = tree
+        return text_decoded
+
+code = HuffmanCoding()
+texto_codificado = code.encode("Hola mundo como esta mi gente linda")
+decode = HuffmanDecoding()
+
+texto_decodificado = decode.decode(texto_codificado, code.get_tree())
+print(texto_decodificado)
