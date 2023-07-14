@@ -2,6 +2,7 @@ class HuffmanBinaryTree:
     """
     Clase que implementa un árbol binario de Huffman
     Autor:Kevin Andres Acosta Rengifo
+          Rodolfo Leon Bolanos Florez
     """
     def __init__(self, key, left, right):
         """

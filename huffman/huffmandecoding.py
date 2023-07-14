@@ -1,9 +1,10 @@
-from huffman.huffmancoding import HuffmanCoding
+# from huffman.huffmancoding import HuffmanCoding
 class HuffmanDecoding:
     """
     Clase HuffmanDecoding
-    Esta clase se encarga de decodificar un teto en base a un árbol de Huffman
+    Esta clase se encarga de decodificar un texto en base a un árbol de Huffman
     Autor: kevin Andres Acosta Rengifo,
+           Rodolfo Leon Bolanos Florez
     Version: 2
     """
     def __init__(self):

@@ -1,6 +1,6 @@
 import pytest
-from huffman .huffmancoding import HuffmanCoding
-from huffman .huffmandecoding import HuffmanDecoding
+from huffman.huffmancoding import HuffmanCoding
+from huffman.huffmandecoding import HuffmanDecoding
 
 """
 @staticmethod

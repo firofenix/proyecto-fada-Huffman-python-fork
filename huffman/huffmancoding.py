@@ -1,11 +1,13 @@
 from huffman.huffmanbinarytree import HuffmanBinaryTree
 from huffman.huffmanbinarytree import Node
 
+
 class HuffmanCoding:
     """
     Clase HuffmanCoding
     Esta clase se encarga de codificar un texto en base a un árbol de Huffman
     Autor: Kevin Andres Acosta Rengifo
+            Rodolfo Leon Bolanos Florez
     Version: <1>
     """
     def __init__(self):
@@ -66,8 +68,8 @@ class HuffmanCoding:
                 if arbol.get_right() is not None:
                     profundidad_right = crear_tabla(arbol.get_right(), codigo + "1")
 
-            profundidad_Actual = max(profundidad_left, profundidad_right) + 1
-            return profundidad_Actual
+            profundidad_actual = max(profundidad_left, profundidad_right) + 1
+            return profundidad_actual
         self.profundidad = crear_tabla(self.arbol, "")
 
         text_coding = ""
